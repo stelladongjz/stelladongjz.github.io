@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stella Dong | UX/UI Designer & PhD Candidate</title>
-    <meta name="description" content="Stella Dong's academic portfolio showcasing UX/UI design projects and Human-Computer Interaction research">
+    <title>Stella Dong | Passionate about human, design, and technology</title>
+    <meta name="description" content="Stella Dong's academic portfolio">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,7 +14,7 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             line-height: 1.6;
             color: #333;
             /* Soft radial peach glow on warm off-white background */
@@ -32,10 +33,145 @@
             padding: 20px;
         }
         
+        .hero .container {
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Floating creative elements */
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #8b5cf6, #a855f7);
+            top: 20%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+        
+        .shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ec4899, #f43f5e);
+            top: 70%;
+            right: 20%;
+            animation-delay: 2s;
+        }
+        
+        .shape:nth-child(3) {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #06b6d4, #0891b2);
+            bottom: 30%;
+            left: 25%;
+            animation-delay: 4s;
+        }
+        
+        .shape:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+            top: 10%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        /* Interactive text effects */
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #5a4b8b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.3)); }
+            to { filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.6)); }
+        }
+        
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #6b5cb5;
+            max-width: 800px;
+            line-height: 1.4;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #5b5360;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Cursor trail effect */
+        .cursor-trail {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.6), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            transition: all 0.1s ease;
+        }
+        
+        /* Hide other sections initially */
+        section {
+            display: none;
+        }
+        
         header {
             text-align: center;
-            padding: 60px 0;
+            padding: 0;
             color: #5a4b8b;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
         }
         
         .hero h1 {
@@ -47,7 +183,7 @@
         .hero h2 {
             font-size: 2rem;
             margin-bottom: 30px;
-            color: #6b5cb5;
+            color: #ae6dbd;
         }
         
         .hero p {
@@ -229,10 +365,16 @@
     </nav>
 
     <header id="home" class="hero">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
         <div class="container">
             <h1>Stella Dong</h1>
-            <h2>UX/UI Designer & PhD Candidate</h2>
-            <p>Human-Computer Interaction Researcher specializing in user experience design, accessibility, and design systems. Currently pursuing PhD research in HCI with a focus on creating inclusive digital experiences.</p>
+            <h2>Design & scientific innovation for a future that celebrates individual uniqueness</h2>
+            <p>Hello! I am a master's student in Computer Science.</p>
         </div>
     </header>
 
@@ -344,5 +486,49 @@
             <p>Designed and developed for PhD application in Human-Computer Interaction</p>
         </div>
     </footer>
+    
+    <script>
+        // Cursor trail effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursor = document.createElement('div');
+            cursor.className = 'cursor-trail';
+            document.body.appendChild(cursor);
+            
+            let mouseX = 0;
+            let mouseY = 0;
+            let cursorX = 0;
+            let cursorY = 0;
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            function animateCursor() {
+                cursorX += (mouseX - cursorX) * 0.1;
+                cursorY += (mouseY - cursorY) * 0.1;
+                
+                cursor.style.left = cursorX - 10 + 'px';
+                cursor.style.top = cursorY - 10 + 'px';
+                
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+            
+            // Interactive shape effects
+            const shapes = document.querySelectorAll('.shape');
+            shapes.forEach(shape => {
+                shape.addEventListener('mouseenter', () => {
+                    shape.style.transform = 'scale(1.2) rotate(45deg)';
+                    shape.style.opacity = '0.3';
+                });
+                
+                shape.addEventListener('mouseleave', () => {
+                    shape.style.transform = 'scale(1) rotate(0deg)';
+                    shape.style.opacity = '0.1';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
