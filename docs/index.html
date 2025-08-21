@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stella Dong | UX/UI Designer & PhD Candidate</title>
-    <meta name="description" content="Stella Dong's academic portfolio showcasing UX/UI design projects and Human-Computer Interaction research">
+    <title>Stella Dong | Passionate about human, design, and technology</title>
+    <meta name="description" content="Stella Dong's academic portfolio">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,7 +14,7 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             line-height: 1.6;
             color: #333;
             /* Soft radial peach glow on warm off-white background */
@@ -133,8 +134,6 @@
             margin: 0 auto;
             color: #5b5360;
             opacity: 0;
-            margin-bottom: 20px;
-            opacity: 0;
             animation: fadeInUp 1s ease-out 1s forwards;
         }
         
@@ -161,21 +160,39 @@
             transition: all 0.1s ease;
         }
         
-        /* Hide other sections initially */
-        section {
+        /* Navigation system */
+        .nav a {
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .nav a.active {
+            color: #8b5cf6;
+            font-weight: 600;
+        }
+        
+        /* Section visibility */
+        .section-content {
             display: none;
-        }
-        
-        /* Ensure no scrolling anywhere */
-        html {
-            overflow: hidden;
-            height: 100%;
-        }
-        
-        /* Lock the main container */
-        .App {
-            overflow: hidden;
             height: 100vh;
+            overflow-y: auto;
+            padding: 80px 20px 20px 20px;
+        }
+        
+        .section-content.active {
+            display: block;
+        }
+        
+        /* Landing page specific */
+        .landing-page {
+            display: block;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        /* Ensure no scrolling on landing page only */
+        html {
+            height: 100%;
         }
         
         /* Prevent any accidental scrolling */
@@ -192,7 +209,7 @@
             text-align: center;
             padding: 0;
             color: #5a4b8b;
-            height: 100vh;
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -209,7 +226,7 @@
         .hero h2 {
             font-size: 2rem;
             margin-bottom: 30px;
-            color: #6b5cb5;
+            color: #ae6dbd;
         }
         
         .hero p {
@@ -384,127 +401,137 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#CV">CV</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <header id="home" class="hero">
-        <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-        </div>
-        <div class="container">
-            <h1>Stella Dong</h1>
-            <h2>UX/UI Designer & PhD Candidate</h2>
-            <p>Human-Computer Interaction Researcher specializing in user experience design, accessibility, and design systems. Currently pursuing PhD research in HCI with a focus on creating inclusive digital experiences.</p>
-        </div>
-    </header>
-
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <p>I am currently pursuing my PhD in Human-Computer Interaction, focusing on user experience design and accessibility research. With extensive experience in UX/UI design and user research, I bridge the gap between design practice and academic research.</p>
-                <p>My work encompasses design systems, accessibility audits, voice interfaces, and healthcare technology design. I believe in creating experiences that are not only beautiful but also inclusive and accessible to all users.</p>
-                <a href="#contact" class="cta-button">Get In Touch</a>
+    <div id="landing-page" class="landing-page">
+        <header id="home" class="hero">
+            <div class="floating-shapes">
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
             </div>
-        </div>
-    </section>
+            <div class="container">
+                <h1>Stella Dong</h1>
+                <h2>Design & scientific innovation for a future that celebrates individual uniqueness</h2>
+                <p>Hello! I am a master's student in Computer Science.</p>
+            </div>
+        </header>
+    </div>
 
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Healthcare Design System</h3>
-                    <p>Comprehensive design system for healthcare applications with accessibility focus. Created scalable components, design tokens, and usability guidelines for medical professionals and patients.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Voice Interface Research</h3>
-                    <p>Research project exploring natural language processing in voice-controlled interfaces. Conducted user studies on voice interaction patterns and designed conversational UI flows.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Accessibility Design Audit</h3>
-                    <p>Comprehensive accessibility audit and redesign of educational platform. Implemented WCAG 2.1 guidelines and improved usability scores by 40%.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Mobile App Redesign</h3>
-                    <p>Complete redesign of mobile banking application focusing on user experience and visual hierarchy. Resulted in 25% increase in user engagement.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Design Thinking Workshops</h3>
-                    <p>Led design thinking workshops for cross-functional teams, teaching human-centered design methodologies. Created frameworks for ideation and prototyping.</p>
-                </div>
-                <div class="project-card">
-                    <h3>User Research Portfolio</h3>
-                    <p>Collection of user research methodologies including surveys, interviews, usability testing, and ethnographic studies. Applied findings to inform design decisions.</p>
+    <div id="about-content" class="section-content">
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <p>I am currently pursuing my PhD in Human-Computer Interaction, focusing on user experience design and accessibility research. With extensive experience in UX/UI design and user research, I bridge the gap between design practice and academic research.</p>
+                    <p>My work encompasses design systems, accessibility audits, voice interfaces, and healthcare technology design. I believe in creating experiences that are not only beautiful but also inclusive and accessible to all users.</p>
+                    <a href="#contact" class="cta-button">Get In Touch</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Design Tools</h3>
-                    <ul>
-                        <li>Figma</li>
-                        <li>Adobe Creative Cloud</li>
-                        <li>Sketch</li>
-                        <li>InVision</li>
-                        <li>Zeplin</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Research Methods</h3>
-                    <ul>
-                        <li>User Research</li>
-                        <li>Usability Testing</li>
-                        <li>Ethnographic Studies</li>
-                        <li>Surveys & Interviews</li>
-                        <li>Data Analysis</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Technical Skills</h3>
-                    <ul>
-                        <li>React.js</li>
-                        <li>JavaScript</li>
-                        <li>Python</li>
-                        <li>HTML/CSS</li>
-                        <li>Git</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Research Areas</h3>
-                    <ul>
-                        <li>Human-Computer Interaction</li>
-                        <li>Accessibility Design</li>
-                        <li>Design Systems</li>
-                        <li>Voice Interfaces</li>
-                        <li>Healthcare Technology</li>
-                    </ul>
+    <div id="projects-content" class="section-content">
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Healthcare Design System</h3>
+                        <p>Comprehensive design system for healthcare applications with accessibility focus. Created scalable components, design tokens, and usability guidelines for medical professionals and patients.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Voice Interface Research</h3>
+                        <p>Research project exploring natural language processing in voice-controlled interfaces. Conducted user studies on voice interaction patterns and designed conversational UI flows.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Accessibility Design Audit</h3>
+                        <p>Comprehensive accessibility audit and redesign of educational platform. Implemented WCAG 2.1 guidelines and improved usability scores by 40%.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Mobile App Redesign</h3>
+                        <p>Complete redesign of mobile banking application focusing on user experience and visual hierarchy. Resulted in 25% increase in user engagement.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Design Thinking Workshops</h3>
+                        <p>Led design thinking workshops for cross-functional teams, teaching human-centered design methodologies. Created frameworks for ideation and prototyping.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>User Research Portfolio</h3>
+                        <p>Collection of user research methodologies including surveys, interviews, usability testing, and ethnographic studies. Applied findings to inform design decisions.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="about-content">
-                <p>I'm always interested in discussing new research opportunities, design collaborations, or academic partnerships.</p>
-                <p>Feel free to reach out if you'd like to connect or learn more about my work.</p>
-                <a href="mailto:your.email@example.com" class="cta-button">Send Email</a>
+    <div id="skills-content" class="section-content">
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Design Tools</h3>
+                        <ul>
+                            <li>Figma</li>
+                            <li>Adobe Creative Cloud</li>
+                            <li>Sketch</li>
+                            <li>InVision</li>
+                            <li>Zeplin</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Research Methods</h3>
+                        <ul>
+                            <li>User Research</li>
+                            <li>Usability Testing</li>
+                            <li>Ethnographic Studies</li>
+                            <li>Surveys & Interviews</li>
+                            <li>Data Analysis</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Technical Skills</h3>
+                        <ul>
+                            <li>React.js</li>
+                            <li>JavaScript</li>
+                            <li>Python</li>
+                            <li>HTML/CSS</li>
+                            <li>Git</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Research Areas</h3>
+                        <ul>
+                            <li>Human-Computer Interaction</li>
+                            <li>Accessibility Design</li>
+                            <li>Design Systems</li>
+                            <li>Voice Interfaces</li>
+                            <li>Healthcare Technology</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+
+    <div id="contact-content" class="section-content">
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="about-content">
+                    <p>I'm always interested in discussing new research opportunities, design collaborations, or academic partnerships.</p>
+                    <p>Feel free to reach out if you'd like to connect or learn more about my work.</p>
+                    <a href="mailto:your.email@example.com" class="cta-button">Send Email</a>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <footer>
         <div class="container">
@@ -575,6 +602,48 @@
                     shape.style.opacity = '0.1';
                 });
             });
+            
+            // Navigation system
+            const navLinks = document.querySelectorAll('.nav a');
+            const sections = document.querySelectorAll('.section-content');
+            const landingPage = document.getElementById('landing-page');
+            
+            function showSection(sectionId) {
+                // Hide all sections and landing page
+                sections.forEach(section => section.classList.remove('active'));
+                landingPage.style.display = 'none';
+                
+                // Remove active class from all nav links
+                navLinks.forEach(link => link.classList.remove('active'));
+                
+                // Show selected section
+                if (sectionId === 'home') {
+                    landingPage.style.display = 'block';
+                } else {
+                    const targetSection = document.getElementById(sectionId + '-content');
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+                }
+                
+                // Add active class to clicked nav link
+                const activeLink = document.querySelector(`[href="#${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+            
+            // Add click event listeners to nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('href').substring(1);
+                    showSection(sectionId);
+                });
+            });
+            
+            // Show landing page by default
+            showSection('home');
         });
     </script>
 </body>
