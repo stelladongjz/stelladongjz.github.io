@@ -24,6 +24,9 @@
                         rgba(251, 246, 242, 1) 80%),
                         #fbf6f2;
             min-height: 100vh;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
         }
         
         .container {
@@ -161,6 +164,28 @@
         /* Hide other sections initially */
         section {
             display: none;
+        }
+        
+        /* Ensure no scrolling anywhere */
+        html {
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        /* Lock the main container */
+        .App {
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        /* Prevent any accidental scrolling */
+        * {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        
+        *::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
         }
         
         header {
@@ -489,8 +514,29 @@
     </footer>
     
     <script>
-        // Cursor trail effect
+        // Prevent all scrolling
         document.addEventListener('DOMContentLoaded', function() {
+            // Disable scrolling
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+            
+            // Prevent scroll events
+            document.addEventListener('scroll', function(e) {
+                e.preventDefault();
+                window.scrollTo(0, 0);
+            }, { passive: false });
+            
+            // Prevent wheel events
+            document.addEventListener('wheel', function(e) {
+                e.preventDefault();
+            }, { passive: false });
+            
+            // Prevent touch events on mobile
+            document.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+            }, { passive: false });
+            
+            // Cursor trail effect
             const cursor = document.createElement('div');
             cursor.className = 'cursor-trail';
             document.body.appendChild(cursor);
