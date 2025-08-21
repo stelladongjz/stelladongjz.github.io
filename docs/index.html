@@ -16,7 +16,13 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* Soft radial peach glow on warm off-white background */
+            background: radial-gradient(ellipse at center,
+                        rgba(255, 186, 164, 0.55) 0%,
+                        rgba(255, 206, 190, 0.35) 32%,
+                        rgba(253, 240, 235, 0.25) 55%,
+                        rgba(251, 246, 242, 1) 80%),
+                        #fbf6f2;
             min-height: 100vh;
         }
         
@@ -29,7 +35,7 @@
         header {
             text-align: center;
             padding: 60px 0;
-            color: white;
+            color: #5a4b8b;
         }
         
         .hero h1 {
@@ -41,14 +47,14 @@
         .hero h2 {
             font-size: 2rem;
             margin-bottom: 30px;
-            color: #f0f0f0;
+            color: #6b5cb5;
         }
         
         .hero p {
             font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto;
-            color: #e0e0e0;
+            color: #5b5360;
         }
         
         .nav {
@@ -68,7 +74,7 @@
         }
         
         .nav a {
-            color: white;
+            color: #5e4fa2;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
@@ -80,7 +86,7 @@
         
         section {
             padding: 80px 0;
-            color: white;
+            color: #3f344a;
         }
         
         .section-title {
@@ -118,7 +124,7 @@
         }
         
         .project-card p {
-            color: #e0e0e0;
+            color: #4a4452;
             margin-bottom: 20px;
         }
         
@@ -163,7 +169,7 @@
         .about-content p {
             font-size: 1.1rem;
             margin-bottom: 20px;
-            color: #e0e0e0;
+            color: #4f4855;
         }
         
         .cta-button {
