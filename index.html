@@ -10,23 +10,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
+    color-scheme: light;  /* same colors regardless of OS dark mode */
     --bg: #fcf8f5;
-    --ink: #0d0d0d;
+    --ink: #464874;
     --text: #5b5680;      /* muted purple-gray body text */
     --strong: #4a4378;    /* bold highlights */
-    --brand: #3f3a8c;     /* logo indigo */
+    --brand: #af7397;     /* logo indigo */
     --nav: #7a7a7a;
     --line: #e9e1db;
     --blob-a: rgba(242, 178, 178, 0.75);
     --blob-b: rgba(214, 196, 240, 0.55);
     --card: rgba(255, 255, 255, 0.55);
   }
-  :root[data-theme="dark"] {
-    --bg: #14121a; --ink: #f3eee9; --text: #b7b1d6; --strong: #d9d3ff;
-    --brand: #a9a2ff; --nav: #9a95ad; --line: #2a2733;
-    --blob-a: rgba(190, 90, 110, 0.45); --blob-b: rgba(110, 90, 190, 0.40);
-    --card: rgba(255, 255, 255, 0.04);
-  }
+
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -221,26 +217,21 @@
 
 
   /* ---------- fuzzy circle cursor (mouse/trackpad only) ---------- */
-  .cursor, .cursor-dot { display: none; }
+  .cursor { display: none; }
   @media (hover: hover) and (pointer: fine) {
     html.has-cursor, html.has-cursor * { cursor: none !important; }
     .cursor {
       display: block; position: fixed; left: 0; top: 0; z-index: 100; pointer-events: none;
       width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%;
-      background: radial-gradient(circle, color-mix(in srgb, var(--brand) 60%, transparent) 0%,
-                                          color-mix(in srgb, #f2a7a7 35%, transparent) 45%, transparent 72%);
-      filter: blur(4px); opacity: 0;
+      background: radial-gradient(circle, color-mix(in srgb, #c2185b 85%, transparent) 0%,
+                                          color-mix(in srgb, #f48fb1 60%, transparent) 30%,
+                                          color-mix(in srgb, #ffb38a 35%, transparent) 55%, transparent 75%);
+      filter: blur(3px); opacity: 0;
       transition: width .35s ease, height .35s ease, margin .35s ease, opacity .3s ease, filter .35s ease;
     }
     .cursor.visible { opacity: 1; }
     .cursor.hovering { width: 54px; height: 54px; margin: -27px 0 0 -27px; filter: blur(6px); }
     .cursor.pressed { width: 20px; height: 20px; margin: -10px 0 0 -10px; }
-    .cursor-dot {
-      display: block; position: fixed; left: 0; top: 0; z-index: 101; pointer-events: none;
-      width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; border-radius: 50%;
-      background: var(--brand); opacity: 0; transition: opacity .3s ease;
-    }
-    .cursor-dot.visible { opacity: .8; }
   }
 
   /* scroll reveal */
@@ -248,6 +239,8 @@
   .reveal.in { opacity: 1; transform: none; }
 
   @media (max-width: 640px) {
+    header { flex-wrap: wrap; row-gap: 6px; }
+    nav { flex-wrap: wrap; gap: 4px 14px; }
     nav a { font-size: .95rem; }
     .timeline li { grid-template-columns: 1fr; gap: 4px; }
     .blob.a { left: 10vw; top: 18vh; }
@@ -267,14 +260,15 @@
   </div>
   <div class="grain" aria-hidden="true"></div>
   <div class="cursor" id="cursor" aria-hidden="true"></div>
-  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
 
   <header id="top">
     <a class="logo" href="#home">Stella D.</a>
     <nav>
       <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
-      <a href="#work">Work</a>
+      <a href="#research">Research</a>
+      <a href="#design">Design</a>
+      <a href="#cv">CV</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -282,14 +276,15 @@
   <main>
     <!-- HERO -->
     <section class="hero" id="home">
-      <h1 class="headline" aria-label="Design for the Mind.">
-        <span class="big" data-split>Design</span>
-        <span class="small" data-split>for the Mind.</span>
+      <h1 class="headline" aria-label="Rewire the Mind.">
+        <span class="big" data-split>Rewire</span>
+        <span class="small" data-split>the Mind.</span>
       </h1>
       <p class="intro">
-        Nice to meet you! This is Stella, a PhD student in <strong>Neurobiology and Behavior</strong>
+        Welcome! I am Stella, a PhD student in <strong>Neurobiology and Behavior</strong>
         at Columbia University. Trained in <strong>cognitive science</strong> and <strong>computer science</strong>,
-        I study how the brain <strong>learns from reward</strong> and <strong>makes decisions</strong>, using
+        I study how the brain <strong>construct internal models</strong> in this ever changing world to guide <strong>learning</strong> and <strong>decision-making</strong>, 
+        and what happens when these processes is <strong>altered</strong>, using
         computational models to connect behavior, brains, and machines. Welcome to my scientific and creative space!
       </p>
       <a class="scroll-cue" href="#about" aria-label="Scroll to About"><span></span></a>
@@ -318,9 +313,9 @@
       </ul>
     </section>
 
-    <!-- WORK -->
-    <section class="block" id="work">
-      <div class="label reveal">Work</div>
+    <!-- RESEARCH -->
+    <section class="block" id="research">
+      <div class="label reveal">Research</div>
       <h2 class="reveal">Projects &amp; research</h2>
       <p class="reveal">[Draft — confirm each project is OK to describe publicly before publishing.]</p>
       <div class="grid">
@@ -350,7 +345,33 @@
       <ul class="timeline reveal">
         <li><span class="when">[year]</span><span class="what">[Title of paper or poster]<small>[Authors] · [Venue]</small></span></li>
       </ul>
-      <p class="reveal" style="margin-top:24px"><a href="cv.pdf" style="color:var(--strong)">Download CV →</a></p>
+    </section>
+
+    <!-- DESIGN -->
+    <section class="block" id="design">
+      <div class="label reveal">Design</div>
+      <h2 class="reveal">Design work</h2>
+      <p class="reveal">[Draft — add your design projects.]</p>
+      <div class="grid">
+        <article class="card reveal">
+          <div class="tag">[Category]</div>
+          <h3>[Design project title]</h3>
+          <p>[One or two sentences about the project.]</p>
+        </article>
+        <article class="card reveal">
+          <div class="tag">[Category]</div>
+          <h3>[Design project title]</h3>
+          <p>[One or two sentences about the project.]</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section class="block" id="cv">
+      <div class="label reveal">CV</div>
+      <h2 class="reveal">Curriculum vitae</h2>
+      <p class="reveal">[Draft — optional one-line summary.]</p>
+      <p class="reveal" style="margin-top:24px"><a href="cv.pdf" style="color:var(--strong)">Download CV (PDF) →</a></p>
     </section>
 
     <!-- CONTACT -->
@@ -407,15 +428,14 @@
   // Fuzzy circle cursor: soft glow trails the pointer and swells over links
   if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
     document.documentElement.classList.add('has-cursor');
-    const c = document.getElementById('cursor'), d = document.getElementById('cursorDot');
+    const c = document.getElementById('cursor');
     let mx = -100, my = -100, cx = -100, cy = -100;
     addEventListener('pointermove', e => {
       mx = e.clientX; my = e.clientY;
-      d.style.transform = `translate(${mx}px, ${my}px)`;
-      c.classList.add('visible'); d.classList.add('visible');
+      c.classList.add('visible');
       c.classList.toggle('hovering', !!e.target.closest('a, button, .card'));
     });
-    document.addEventListener('pointerleave', () => { c.classList.remove('visible'); d.classList.remove('visible'); });
+    document.addEventListener('pointerleave', () => c.classList.remove('visible'));
     addEventListener('pointerdown', () => c.classList.add('pressed'));
     addEventListener('pointerup', () => c.classList.remove('pressed'));
     const ease = reduce ? 1 : 0.18;
