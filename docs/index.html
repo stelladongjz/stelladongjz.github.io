@@ -21,14 +21,6 @@
     --blob-b: rgba(214, 196, 240, 0.55);
     --card: rgba(255, 255, 255, 0.55);
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #14121a; --ink: #f3eee9; --text: #b7b1d6; --strong: #d9d3ff;
-      --brand: #a9a2ff; --nav: #9a95ad; --line: #2a2733;
-      --blob-a: rgba(190, 90, 110, 0.45); --blob-b: rgba(110, 90, 190, 0.40);
-      --card: rgba(255, 255, 255, 0.04);
-    }
-  }
   :root[data-theme="dark"] {
     --bg: #14121a; --ink: #f3eee9; --text: #b7b1d6; --strong: #d9d3ff;
     --brand: #a9a2ff; --nav: #9a95ad; --line: #2a2733;
@@ -234,15 +226,15 @@
     html.has-cursor, html.has-cursor * { cursor: none !important; }
     .cursor {
       display: block; position: fixed; left: 0; top: 0; z-index: 100; pointer-events: none;
-      width: 60px; height: 60px; margin: -30px 0 0 -30px; border-radius: 50%;
+      width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%;
       background: radial-gradient(circle, color-mix(in srgb, var(--brand) 60%, transparent) 0%,
                                           color-mix(in srgb, #f2a7a7 35%, transparent) 45%, transparent 72%);
-      filter: blur(6px); opacity: 0;
+      filter: blur(4px); opacity: 0;
       transition: width .35s ease, height .35s ease, margin .35s ease, opacity .3s ease, filter .35s ease;
     }
     .cursor.visible { opacity: 1; }
-    .cursor.hovering { width: 96px; height: 96px; margin: -48px 0 0 -48px; filter: blur(10px); }
-    .cursor.pressed { width: 34px; height: 34px; margin: -17px 0 0 -17px; }
+    .cursor.hovering { width: 54px; height: 54px; margin: -27px 0 0 -27px; filter: blur(6px); }
+    .cursor.pressed { width: 20px; height: 20px; margin: -10px 0 0 -10px; }
     .cursor-dot {
       display: block; position: fixed; left: 0; top: 0; z-index: 101; pointer-events: none;
       width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; border-radius: 50%;
@@ -458,8 +450,7 @@
   const root = document.documentElement;
   try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
   document.getElementById('themeToggle').addEventListener('click', () => {
-    const dark = root.dataset.theme ? root.dataset.theme === 'dark'
-      : matchMedia('(prefers-color-scheme: dark)').matches;
+    const dark = root.dataset.theme === 'dark';
     root.dataset.theme = dark ? 'light' : 'dark';
     try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
   });
